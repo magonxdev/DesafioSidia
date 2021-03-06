@@ -1,0 +1,30 @@
+Sidia Challenge
+
+Task Checklist
+
+Sábado
+
+OK Criação do grid de tamanho dinâmico 
+OK Criação do player
+OK Movimentação do player no grid
+OK Criação da câmera com cinemachine que segue o jogador
+OK Criação do sistema de ghost quando passa o mouse em cima de onde dá pra andar
+OK Criação do player 2
+OK Criação do sistema de turnos
+OK Criação do sistema de batalha por dados
+OK Sistema de batalha por ticks de rodadas para fazer a animação depois
+
+Domingo
+
+Criação do sistema de diminuição de movimentos
+Criação de coletáveis que dão mais movimentos
+Criação de coletáveis que buffam atack
+Criação de coletáveis que dão vida
+Criação de coletáveis que ganham dados extras
+Criação do sistema de troca de turno de jogadores
+Polimentos - adicionar personagens
+Polimento - adicionar sons
+Polimento - adicionar efeitos de hits
+Criação do menu principal com start game
+Criação da tela de game over
+
