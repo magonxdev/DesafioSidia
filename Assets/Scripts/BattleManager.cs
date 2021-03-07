@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour
 
     //Singleton
     public static BattleManager instance;
+    
 
     [SerializeField] private int NumberOfDiceRolls;
     [SerializeField] private int MaximumRounds;

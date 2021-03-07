@@ -5,20 +5,22 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
 
-    public GameObject WhiteCell;
-    public GameObject BlackCell;
+    [SerializeField] private CollectablesManager collectablesManager;
+    [SerializeField] private GameObject WhiteCell;
+    [SerializeField] private GameObject BlackCell;
+    [SerializeField] private int NumRows;
+    [SerializeField] private int NumCols;
 
-    public int NumRows;
-    public int NumCols;
     private bool isWhite;
+    private List<GameObject> GridCellsList;
 
-
-    void Start()
+    private void Awake()
     {
-        CreateGridBase();        
-    }
 
-    
+        GridCellsList = new List<GameObject>();
+        CreateGridBase();
+    }
+        
     private void CreateGridBase()
     {
 
@@ -29,10 +31,12 @@ public class GridManager : MonoBehaviour
 
                 if (isWhite)
                 {
-                    GameObject CellInstantiated = Instantiate(WhiteCell, new Vector3(i, 0, j), Quaternion.identity) as GameObject;
+                    GameObject CellInstantiated = Instantiate(WhiteCell, new Vector3(i, 0, j), Quaternion.identity, transform) as GameObject;
+                    GridCellsList.Add(CellInstantiated);
                 } else
                 {
-                    GameObject CellInstantiated = Instantiate(BlackCell, new Vector3(i, 0, j), Quaternion.identity) as GameObject;
+                    GameObject CellInstantiated = Instantiate(BlackCell, new Vector3(i, 0, j), Quaternion.identity, transform) as GameObject;
+                    GridCellsList.Add(CellInstantiated);
                 }
 
                 isWhite = !isWhite;
@@ -41,6 +45,39 @@ public class GridManager : MonoBehaviour
 
             isWhite = !isWhite;
         }
+
+    }
+
+    //Método para selecionar posições aleatórias no grid e retornar como uma lista. Usado para spawnar objetos
+
+    public List<Vector3> ChooseRandomCellPositions(int amount)
+    {
+
+        List<int> tempChoose = new List<int>();
+        List<Vector3> tempPosList = new List<Vector3>();
+
+        for (int i = 0; i < amount; i++)
+        {
+            int RandomPos = Random.Range(0, GridCellsList.Count);
+
+            if (tempChoose.Contains(RandomPos)) {
+                i--;
+            } else
+            {
+                tempChoose.Add(RandomPos);
+                tempPosList.Add(GridCellsList[RandomPos].transform.position);
+            }
+
+
+        }
+
+        return tempPosList;
+
+    }
+
+    public List<GameObject> GetCellList()
+    {
+        return GridCellsList;
 
     }
 

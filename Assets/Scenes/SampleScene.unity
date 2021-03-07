@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ca588cf43b4ee4aa0831f09eeb69ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectablesManager: {fileID: 0}
   WhiteCell: {fileID: 112595396268455240, guid: 58212100d745a8b4b8b5f5a64402418a, type: 3}
   BlackCell: {fileID: 112595396268455240, guid: 68e002b31fd87204b992e2356eaa73f1, type: 3}
   NumRows: 8
@@ -224,6 +225,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &252570787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 252570788}
+  - component: {fileID: 252570789}
+  m_Layer: 0
+  m_Name: CollectablesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &252570788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252570787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.6380997, y: 6.2019377, z: 2.8396435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &252570789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252570787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf6ea2246ccfc7468d68df3cac2e82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridManager: {fileID: 126576906}
+  CollectableItemPrefab: {fileID: 4179674900459604938, guid: aa72a6349185f4e4293b17344d79b030, type: 3}
+  CollectablesAmount: 4
 --- !u!850595691 &359609794
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -983,6 +1030,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 207020273814414275, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207020273814414275, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2269940960063457506, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -1043,6 +1098,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3365119208970858454, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
 --- !u!1 &2080493838
@@ -1097,14 +1156,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 207020273814414275, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207020273814414275, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2269940960063457506, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    - target: {fileID: 2269940960063457532, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1ed584c7b6d0b7244b09393a46e9a6a8, type: 2}
     - target: {fileID: 2269940960063457534, guid: 5653a5bc03568134eb666c0fdff8d3d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

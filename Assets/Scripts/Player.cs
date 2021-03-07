@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+    [SerializeField] private Slider HPSlider;
     [SerializeField] private TMP_Text Message;
     [SerializeField] private Animator MessageAnimator;
     [SerializeField] private int PlayerHP;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int PlayerMovement;
 
     private bool isAlive;
-
+    private int maxHP;
 
     public Player (int hp, int attack, int movement)
     {
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        maxHP = PlayerHP;
         isAlive = true;
     }
 
@@ -52,9 +54,10 @@ public class Player : MonoBehaviour
         return isAlive;
     }
 
-    public void SetPlayerMessage(string msg)
+    public void SetPlayerMessage(string msg, Color c)
     {
         Message.text = msg;
+        Message.color = c;
         MessageAnimator.SetTrigger("TextGoingUp");
     }
 
@@ -70,17 +73,6 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        
-        if (other.tag == "Player2")
-        {
-
-            BattleManager.instance.StartBattle(this, other.GetComponent<Player>());
-
-        }
-
-    }
 
     public void ReceiveHit(int amount)
     {
@@ -95,14 +87,46 @@ public class Player : MonoBehaviour
             
 
         UpdateHPBar();
+        SetPlayerMessage("-" + amount, Color.red);
 
     }
 
+    //Método para atualizar os slider de HP acima do jogador
     void UpdateHPBar()
     {
-        SetPlayerMessage("Received hit! HP is now " + PlayerHP);
+        HPSlider.value = PlayerHP / (float)maxHP;
     }
 
+    public void HpPowerUp(int amount)
+    {
+        PlayerHP += amount;
+        UpdateHPBar();
+        SetPlayerMessage("+HP", Color.red);
+    }
+
+
+    public void AttackPowerUp(int amount)
+    {
+        PlayerAttack += amount;
+        SetPlayerMessage("+ATTACK", Color.blue);
+    }
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.tag == "Player2")
+        {
+
+            BattleManager.instance.StartBattle(this, other.GetComponent<Player>());
+
+        } else if (other.tag == "Collectable")
+        {
+            other.GetComponent<Collectable>().ItemCollected(this);
+        }
+
+    }
 
 
 }
