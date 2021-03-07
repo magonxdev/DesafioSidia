@@ -5,7 +5,8 @@ using UnityEngine;
 public class CollectablesManager : MonoBehaviour
 {
     [SerializeField] private GridManager GridManager;
-    [SerializeField] private GameObject CollectableItemPrefab;
+    [SerializeField] private GameObject AttackPotionPrefab;
+    [SerializeField] private GameObject HPPotionPrefab;
     [SerializeField] private int CollectablesAmount;
     List<Vector3> PositionsToSpawn;
 
@@ -33,13 +34,13 @@ public class CollectablesManager : MonoBehaviour
             //Vai spawnar um item de HP
             if (RandomCollectable == 0)
             {
-                SpawnItem(PositionsToSpawn[i], AttributeType.ItemHP, Color.red);
+                SpawnItem(PositionsToSpawn[i], AttributeType.ItemHP, HPPotionPrefab);
             }
 
             //Vai spawnar um item de Attack
             else if (RandomCollectable == 1)
             {
-                SpawnItem(PositionsToSpawn[i], AttributeType.ItemAttack, Color.cyan);
+                SpawnItem(PositionsToSpawn[i], AttributeType.ItemAttack, AttackPotionPrefab);
             }
 
         }
@@ -48,14 +49,14 @@ public class CollectablesManager : MonoBehaviour
     }
 
     //Instancia o item a ser criado, adicionando dinamicamente um tipo de enumerador nele, o método COllectable e uma cor baseado no seu tipo
-    private void SpawnItem (Vector3 positionToSpawn, AttributeType itemType, Color c)
+    private void SpawnItem (Vector3 positionToSpawn, AttributeType itemType, GameObject itemToInstantiate)
     {
 
-        GameObject item = Instantiate(CollectableItemPrefab, positionToSpawn, Quaternion.identity);
+        GameObject item = Instantiate(itemToInstantiate, positionToSpawn, Quaternion.identity);
         Collectable collectable  = item.GetComponent<Collectable>();
         collectable.SetCollectableType(itemType);
         item.name = itemType.ToString();
-        item.GetComponent<MeshRenderer>().material.color = c;
+
 
     }
     
