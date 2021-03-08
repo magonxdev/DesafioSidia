@@ -30,6 +30,7 @@ public class TurnManager : MonoBehaviour
 
     }
 
+    //Troca os turnos entre jogador 1 e 2
     public void ChangeTurn()
     {
 

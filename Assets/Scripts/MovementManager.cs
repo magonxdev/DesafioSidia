@@ -56,6 +56,8 @@ public class MovementManager : MonoBehaviour
         ChangeActualPlayer();
     }
 
+    //Mecânica de clique para movimentação
+
     void CreateGhostToFollowMouse()
     {
 
@@ -83,6 +85,8 @@ public class MovementManager : MonoBehaviour
 
     }
 
+    //Anda até o destino clicado
+
     private void MoveToDestination()
     {
 
@@ -92,6 +96,8 @@ public class MovementManager : MonoBehaviour
         KnightAnim.transform.LookAt(TargetDestinationToMove);
 
     }
+
+    //Método chamado durante o movimento
 
     private void PlayerMoving()
     {
@@ -106,6 +112,8 @@ public class MovementManager : MonoBehaviour
         }
 
     }
+
+    //Troca de turnos entre jogadores
 
     private void ChangeActualPlayer()
     {
@@ -126,12 +134,17 @@ public class MovementManager : MonoBehaviour
 
     }
 
+    //Inicia o jogo
+
     public void StartGame()
     {
 
         startedGame = true;
 
     }
+
+
+    //Encerra o jogo (não deixa mais terem cliques)
 
     public void EndGame()
     {

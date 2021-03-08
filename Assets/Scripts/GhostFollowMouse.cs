@@ -15,6 +15,10 @@ public class GhostFollowMouse : MonoBehaviour
     bool started;
 
     // Update is called once per frame
+
+
+    //Método que cria um fantasma de clique para poder movimentar o jogador pelo tabuleiro
+
     void Update()
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, 1, Input.mousePosition.z);
@@ -26,6 +30,8 @@ public class GhostFollowMouse : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit)) {
 
+
+            //Caso clique em uma célula
 
             if (hit.collider.gameObject.tag == "GridCell")
             {

@@ -64,6 +64,8 @@ public class DiceRollerManager : MonoBehaviour
 
     }
 
+    //Chamado para rodar individualmente um único dado
+
     int RollIndividualDice(Image diceImg)
     {
 
@@ -73,6 +75,8 @@ public class DiceRollerManager : MonoBehaviour
         return diceRolled+1;
 
     }
+
+    //Chamado no final para setar o sprite do dado escolhido
 
     void SetIndividualDice(Image diceImg, int diceNumber)
     {

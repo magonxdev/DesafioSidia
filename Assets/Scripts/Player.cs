@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+    //Classe principal do jogador, com todos seus atributos
+
     [SerializeField] private Slider HPSlider;
     [SerializeField] private TMP_Text Message;
     [SerializeField] private Animator MessageAnimator;
@@ -57,6 +59,8 @@ public class Player : MonoBehaviour
         return isAlive;
     }
 
+    //Faz surgir uma mensagem quando toma hit ou pega item
+
     public void SetPlayerMessage(string msg, Color c)
     {
         Message.text = msg;
@@ -76,6 +80,8 @@ public class Player : MonoBehaviour
 
     }
 
+
+    //Recebeu um hit do inimigo
 
     public void ReceiveHit(Player playerToHit)
     {
@@ -122,6 +128,7 @@ public class Player : MonoBehaviour
     }
 
 
+    //Item coletavel ou entrar na batalha
 
     private void OnTriggerEnter(Collider other)
     {
@@ -172,6 +179,7 @@ public class Player : MonoBehaviour
 
     }
 
+    //Métodos auxiliares de animação dos jogadores
     public void FightIdleAnimation()
     {
         KnightAnim.SetTrigger("KnightFightIdle");

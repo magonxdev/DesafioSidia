@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    //Classe que cria um grid 16 x 16 (ou qualquer numero) de quadrados como um tabuleiro xadrez
+
 
     [SerializeField] private CollectablesManager collectablesManager;
     [SerializeField] private GameObject WhiteCell;
@@ -21,6 +23,8 @@ public class GridManager : MonoBehaviour
         CreateGridBase();
     }
         
+    //Cria a base de celulas do grid
+
     private void CreateGridBase()
     {
 

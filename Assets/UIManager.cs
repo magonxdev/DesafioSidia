@@ -7,6 +7,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
 
+    //Classe auxiliar de menu para poder chamar o game over e o menu principal
+
     public static UIManager instance;
 
     [SerializeField] private TMP_Text WinnerText;

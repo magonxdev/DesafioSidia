@@ -6,6 +6,8 @@ using Cinemachine;
 public class CameraBattleChanger : MonoBehaviour
 {
 
+    //Classe auxiliar de câmeras que faz a troca de uma câmera para outra
+
     public static CameraBattleChanger instance;
 
 

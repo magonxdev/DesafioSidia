@@ -57,6 +57,8 @@ public class BattleManager : MonoBehaviour
 
     }
 
+    //Inicia uma batalha de dados
+
     public void StartBattle(Player player1, Player player2)
     {
 
@@ -223,6 +225,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    //Finaliza a rodada atual
     void EndBattleRound()
     {
 
@@ -238,6 +241,7 @@ public class BattleManager : MonoBehaviour
 
     }
 
+    //Limpa as referências de listas de dados de cada jogador
     void CleanBattleData()
     {
         BattleRound = 0;

@@ -8,6 +8,8 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
+    //Corrige onde os jogadores estão olhando
+
     public void playerLooks()
     {
         player1.transform.LookAt(player2.transform.position);
