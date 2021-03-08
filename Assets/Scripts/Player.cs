@@ -12,9 +12,12 @@ public class Player : MonoBehaviour
     [SerializeField] private int PlayerHP;
     [SerializeField] private int PlayerAttack;
     [SerializeField] private int PlayerMovement;
+    [SerializeField] private Animator KnightAnim;
 
     private bool isAlive;
     private int maxHP;
+    private bool isNearBattle;
+    private Player tempEnemy;
 
     public Player (int hp, int attack, int movement)
     {
@@ -74,15 +77,22 @@ public class Player : MonoBehaviour
     }
 
 
-    public void ReceiveHit(int amount)
+    public void ReceiveHit(Player playerToHit)
     {
 
+        playerToHit.AttackAnimation();
+
+        int amount = playerToHit.GetPlayerAttack();
         PlayerHP -= amount;
 
         if (PlayerHP <= 0)
         {
             PlayerHP = 0;
             isAlive = false;
+            DieAnimation();
+        } else
+        {
+            ReceiveHitAnimation();            
         }
             
 
@@ -118,7 +128,6 @@ public class Player : MonoBehaviour
 
         if (other.tag == "Player2")
         {
-
             BattleManager.instance.StartBattle(this, other.GetComponent<Player>());
 
         } else if (other.tag == "Collectable")
@@ -128,5 +137,73 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        
+        if (other.tag == "Player2")
+        {
+            isNearBattle = true;
+            tempEnemy = other.GetComponent<Player>();
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        isNearBattle = false;
+        tempEnemy = null;
+
+    }
+
+    private void OnMouseDown()
+    {
+
+       if (isNearBattle)
+        {
+            if (tempEnemy != null)
+            {
+
+                BattleManager.instance.StartBattle(this, tempEnemy);
+            }
+
+
+        }
+
+    }
+
+    public void FightIdleAnimation()
+    {
+        KnightAnim.SetTrigger("KnightFightIdle");
+    }
+
+    public void EndFightAnimation()
+    {
+
+        KnightAnim.SetTrigger("KnightEndFight");
+    }
+
+    public void AttackAnimation()
+    {
+        KnightAnim.SetTrigger("KnightSwordSlash");
+    }
+
+    public void ReceiveHitAnimation()
+    {
+        KnightAnim.SetTrigger("KnightTakeHit");
+
+    }
+
+    public void DieAnimation()
+    {
+        KnightAnim.SetTrigger("KnightHitAndDie");
+    }
+
+    public void ResetMovingTriggers()
+    {
+
+        KnightAnim.ResetTrigger("KnightRunning");
+        KnightAnim.SetTrigger("KnightArrived");
+    }
 
 }

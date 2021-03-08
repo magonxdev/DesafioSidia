@@ -16,15 +16,22 @@ OK Sistema de batalha por ticks de rodadas para fazer a animação depois
 
 Domingo
 
-MAYBE Criação do sistema de diminuição de movimentos
-MAYBE Criação de coletáveis que dão mais movimentos
+OK Criação do sistema de troca de turno de jogadores
 OK Criação de coletáveis que buffam atack
 OK Criação de coletáveis que dão vida
-MAYBE Criação de coletáveis que ganham dados extras
-MAYBE Criação do sistema de troca de turno de jogadores
-Polimentos - adicionar personagens
-Polimento - adicionar sons
-Polimento - adicionar efeitos de hits
-Criação do menu principal com start game
-Criação da tela de game over
+OK Polimentos - adicionar personagens
+OK Polimento - adicionar sons
+OK - adicionar efeitos de hits e dados
+OK Sons de poções
+OK Sons de dying
+OK Música de fundo (idle e batalha)
+OK Armadura vermelha do inimigo
+OK Criação do menu principal com start game
+OK Criação da tela de game over
 
+Not done
+
+
+Criação do sistema de diminuição de movimentos
+Criação de coletáveis que dão mais movimentos
+Criação de coletáveis que ganham dados extras

@@ -8,8 +8,6 @@ public class TurnManager : MonoBehaviour
     //Singleton para acessar facilmente os turnos
     public static TurnManager instance;
 
-    enum TurnPlayer { PlayerOneTurn, PlayerTwoTurn };
-
     TurnPlayer actualTurn;
 
     private void Awake()
@@ -42,6 +40,12 @@ public class TurnManager : MonoBehaviour
         {
             actualTurn = TurnPlayer.PlayerOneTurn;
         }
+
+    }
+
+    public TurnPlayer GetActualTurn()
+    {
+        return actualTurn;
 
     }
 

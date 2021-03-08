@@ -6,6 +6,12 @@ public class Collectable : MonoBehaviour
 {
 
     private AttributeType attributeType;
+    [SerializeField] private AudioSource potionSound;
+
+    private void Start()
+    {
+        potionSound = GameObject.FindGameObjectWithTag("PotionSound").GetComponent<AudioSource>();
+    }
 
     //Setter para o tipo
     public void SetCollectableType(AttributeType attr)
@@ -25,6 +31,7 @@ public class Collectable : MonoBehaviour
             player.HpPowerUp(2);
         }
 
+        potionSound.Play();
         Destroy(this.gameObject);
 
     }
